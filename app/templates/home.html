@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>Plan smart. Spend wise.</h1>
+    <p class="hero-sub">PocketSmart AI builds a curated, budget-fit shopping plan for your home, your next party, or your jewelry — picking only from popular Indian platforms, all within your budget.</p>
+  </div>
+</section>
+<section class="planner-cards container" aria-label="Planners">
+  <a class="planner-card" href="/home-planner">
+    <div class="planner-card-icon" aria-hidden="true">🏠</div>
+    <h2>Home Budget Planner</h2>
+    <p>Room-wise interior shopping plan across IKEA, Amazon, and Flipkart — lights, sofas, beds, and more, split smartly across every room.</p>
+    <span class="planner-card-cta">Plan my home →</span>
+  </a>
+  <a class="planner-card" href="/party-planner">
+    <div class="planner-card-icon" aria-hidden="true">🎉</div>
+    <h2>Party Planner</h2>
+    <p>Proportional event budget for catering, decoration, entertainment, and stay — from Swiggy, Zomato, and OYO, sized to your guest count.</p>
+    <span class="planner-card-cta">Plan my party →</span>
+  </a>
+  <a class="planner-card" href="/jewelry-planner">
+    <div class="planner-card-icon" aria-hidden="true">💍</div>
+    <h2>Jewelry Budget Planner</h2>
+    <p>Occasion and outfit-aware jewelry suggestions from Amazon and Flipkart — optionally coordinated to a photo of your outfit.</p>
+    <span class="planner-card-cta">Pick my jewelry →</span>
+  </a>
+</section>
+{% endblock %}

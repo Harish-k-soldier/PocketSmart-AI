@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="planner-header container">
+  <h1>Home Budget Planner</h1>
+  <p>Tell us your budget, style, and which rooms you're furnishing. We'll split your budget room-by-room and pick catalog items that fit. A 5% contingency is always kept aside.</p>
+</section>
+<section class="container">
+  <form id="home-form" class="planner-form" novalidate>
+    <div class="field">
+      <label for="budget">Total budget (₹)</label>
+      <input type="number" id="budget" name="budget" min="10000" max="100000000" step="1" value="150000" required inputmode="numeric">
+      <p class="field-hint">Between ₹10,000 and ₹10,00,00,000</p>
+      <p class="field-error" data-error-for="budget" hidden></p>
+    </div>
+
+    <fieldset class="field">
+      <legend>Style</legend>
+      <div class="radio-cards" role="radiogroup" aria-label="Style">
+        <label class="radio-card"><input type="radio" name="style" value="modern" checked><span>Modern</span></label>
+        <label class="radio-card"><input type="radio" name="style" value="minimal"><span>Minimal</span></label>
+        <label class="radio-card"><input type="radio" name="style" value="traditional"><span>Traditional</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="field">
+      <legend>Rooms</legend>
+      <div class="chips" role="group" aria-label="Rooms">
+        <button type="button" class="chip" data-room="living_room" aria-pressed="false">Living Room</button>
+        <button type="button" class="chip" data-room="kitchen" aria-pressed="false">Kitchen</button>
+        <button type="button" class="chip" data-room="bedroom" aria-pressed="false">Bedroom</button>
+        <button type="button" class="chip" data-room="dining_room" aria-pressed="false">Dining Room</button>
+        <button type="button" class="chip" data-room="kids_room" aria-pressed="false">Kids Room</button>
+        <button type="button" class="chip" data-room="study_room" aria-pressed="false">Study/Home Office</button>
+      </div>
+      <p class="field-error" data-error-for="rooms" hidden></p>
+    </fieldset>
+
+    <div id="room-fields" class="room-fields" aria-live="polite"></div>
+
+    <div class="field">
+      <label for="notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="notes" name="notes" maxlength="200" rows="3" placeholder="Anything we should know? e.g. prefer wooden furniture"></textarea>
+      <p class="field-hint"><span id="notes-counter">0</span>/200</p>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" id="home-submit">Build my plan</button>
+    </div>
+  </form>
+
+  {% include "partials/_spinner.html" %}
+  {% include "partials/_error_box.html" %}
+
+  <section id="results" hidden aria-live="polite"></section>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/home.js" defer></script>
+{% endblock %}

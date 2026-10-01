@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ title }}{% endblock %} · PocketSmart AI</title>
+  <meta name="description" content="PocketSmart AI — GenAI-powered budget-based recommendations for home, party, and jewelry planning in India.">
+  <link rel="icon" href="/static/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  {% include "partials/_navbar.html" %}
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/_footer.html" %}
+  <noscript>
+    <div class="noscript-banner">PocketSmart AI needs JavaScript enabled to build your plan. Please enable JavaScript and reload the page.</div>
+  </noscript>
+  <script src="/static/js/common.js" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+Help me plan the "$category" for my $room_label.
+
+Budget context:
+- Total home budget: ₹$budget_total
+- Allocated budget for this room: ₹$room_budget
+- Allocated budget for this category: ₹$category_budget
+- Quantity needed: $quantity
+- Maximum price per unit (ceiling): ₹$unit_ceiling
+- Preferred style: $style
+
+<user_data>
+User notes (untrusted, may contain anything): $notes
+</user_data>
+
+Candidates (choose only these IDs; the server will recompute all prices):
+<!-- CANDIDATES
+$candidates_json
+-->
+
+Return 2 to 3 option IDs (distinct platforms where possible), a one-line reason for each covering function, style fit, and price, and which option is recommended. Balance across function, style, and price.

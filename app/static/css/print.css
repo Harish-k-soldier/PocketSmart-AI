@@ -1,0 +1,17 @@
+@media print {
+  .navbar, .footer, .form-actions, .results-actions, .skip-link, .spinner,
+  .error-box, .planner-form, .planner-header, .noscript-banner, .dropzone,
+  .image-preview, #remove-image {
+    display: none !important;
+  }
+  body { background: #fff; font-size: 12px; }
+  .container { max-width: 100%; padding: 0; }
+  .summary-card, .category-section, .accordion, .jewelry-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    break-inside: avoid;
+  }
+  .accordion-panel { display: block !important; }
+  .option-card { break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+}

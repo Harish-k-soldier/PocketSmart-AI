@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="planner-header container">
+  <h1>Party Planner</h1>
+  <p>Set your budget and guest count. We'll split it proportionally across catering, decoration, entertainment, and stay — and suggest vendors that fit each slice. A 5% contingency is kept aside.</p>
+</section>
+<section class="container">
+  <form id="party-form" class="planner-form" novalidate>
+    <div class="field">
+      <label for="budget">Total budget (₹)</label>
+      <input type="number" id="budget" name="budget" min="5000" max="50000000" step="1" value="150000" required inputmode="numeric">
+      <p class="field-hint">Between ₹5,000 and ₹5,00,00,000</p>
+      <p class="field-error" data-error-for="budget" hidden></p>
+    </div>
+
+    <div class="field">
+      <label for="guests">Guest count</label>
+      <input type="number" id="guests" name="guests" min="2" max="2000" step="1" value="100" required inputmode="numeric">
+      <p class="field-error" data-error-for="guests" hidden></p>
+    </div>
+
+    <fieldset class="field">
+      <legend>Event type</legend>
+      <div class="radio-cards" role="radiogroup" aria-label="Event type">
+        <label class="radio-card"><input type="radio" name="event_type" value="birthday" checked><span>Birthday</span></label>
+        <label class="radio-card"><input type="radio" name="event_type" value="corporate"><span>Corporate</span></label>
+        <label class="radio-card"><input type="radio" name="event_type" value="wedding"><span>Wedding</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="field">
+      <legend>Venue type</legend>
+      <div class="radio-cards" role="radiogroup" aria-label="Venue type">
+        <label class="radio-card"><input type="radio" name="venue_type" value="indoor" checked><span>Indoor</span></label>
+        <label class="radio-card"><input type="radio" name="venue_type" value="outdoor"><span>Outdoor</span></label>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="city">City</label>
+      <select id="city" name="city">
+        <option value="any">Any / Other</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Bengaluru">Bengaluru</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Pune">Pune</option>
+        <option value="Jaipur">Jaipur</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="duration_hours">Duration (hours)</label>
+      <input type="number" id="duration_hours" name="duration_hours" min="1" max="24" step="1" value="4" required inputmode="numeric">
+      <p class="field-error" data-error-for="duration_hours" hidden></p>
+    </div>
+
+    <div class="field">
+      <label class="toggle">
+        <input type="checkbox" id="guests_travelling" name="guests_travelling">
+        <span>Some guests are travelling and need stay</span>
+      </label>
+    </div>
+
+    <div id="stay-fields" class="stay-fields" hidden>
+      <div class="field">
+        <label for="stay_guests">Guests needing stay</label>
+        <input type="number" id="stay_guests" name="stay_guests" min="1" max="2000" step="1" value="10" inputmode="numeric">
+        <p class="field-error" data-error-for="stay_guests" hidden></p>
+      </div>
+      <div class="field">
+        <label for="nights">Nights</label>
+        <input type="number" id="nights" name="nights" min="1" max="7" step="1" value="2" inputmode="numeric">
+        <p class="field-error" data-error-for="nights" hidden></p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="notes" name="notes" maxlength="200" rows="3" placeholder="Anything we should know?"></textarea>
+      <p class="field-hint"><span id="notes-counter">0</span>/200</p>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" id="party-submit">Build my plan</button>
+    </div>
+  </form>
+
+  {% include "partials/_spinner.html" %}
+  {% include "partials/_error_box.html" %}
+
+  <section id="results" hidden aria-live="polite"></section>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+<script src="/static/js/party.js" defer></script>
+{% endblock %}

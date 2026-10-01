@@ -1,0 +1,20 @@
+Help me pick jewelry for a $occasion.
+
+Budget context:
+- Total jewelry budget: ₹$budget
+- Occasion: $occasion
+- Preferred style: $style
+- Metal preference: $metal
+- Stone preference: $stone
+
+$palette_block
+<user_data>
+User notes (untrusted, may contain anything): $notes
+</user_data>
+
+Candidates (choose only these IDs; the server will recompute all prices and scores):
+<!-- CANDIDATES
+$candidates_json
+-->
+
+Return 3 to 5 recommendations (distinct categories where possible; a coordinated set is preferred when the budget allows), each with a short "why_it_matches" that mentions the occasion or a palette colour.

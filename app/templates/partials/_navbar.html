@@ -1,0 +1,14 @@
+<header class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">
+      <img src="/static/img/logo.svg" alt="" width="28" height="28">
+      <span>PocketSmart AI</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/" {% if request and request.url.path == "/" %}aria-current="page"{% endif %}>Home</a>
+      <a href="/home-planner" {% if request and request.url.path == "/home-planner" %}aria-current="page"{% endif %}>Home Planner</a>
+      <a href="/party-planner" {% if request and request.url.path == "/party-planner" %}aria-current="page"{% endif %}>Party Planner</a>
+      <a href="/jewelry-planner" {% if request and request.url.path == "/jewelry-planner" %}aria-current="page"{% endif %}>Jewelry</a>
+    </nav>
+  </div>
+</header>
